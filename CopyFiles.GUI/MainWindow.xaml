@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CopyFiles.GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="CopyFiles" 
+        Height="450" Width="800">
+    
+    <Window.DataContext>
+        <local:MainWindowModel/>
+    </Window.DataContext>
+    
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="_From"
+                   Target="{Binding ElementName=InputFrom}"/>
+            <TextBox x:Name="InputFrom"
+                     Text="{Binding From}"/>
+            <Button Content="Select"
+                    Command="{Binding CommandSelect}"
+                    CommandParameter="From"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal">
+            <Label Content="_To"
+                   Target="{Binding ElementName=InputFrom}"/>
+            <TextBox x:Name="InputTo"
+                     Text="{Binding To}"/>
+            <Button Content="Select"
+                    Command="{Binding CommandSelect}"
+                    CommandParameter="To"/>
+        </StackPanel>
+        
+        <StackPanel>
+            <Button Content="Start"
+                    Command="{Binding CommandStart}"/>
+            <ProgressBar Value="{Binding Value}"
+                         Minimum="0"
+                         Maximum="{Binding Maximum}"
+                         Height="20"/>
+        </StackPanel>
+    </StackPanel>
 </Window>

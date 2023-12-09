@@ -10,4 +10,3 @@ namespace CopyFiles.GUI;
 public partial class App : Application
 {
 }
-
